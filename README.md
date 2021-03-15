@@ -7,13 +7,6 @@
 2. [Schema](#Schema)
 
 ## Overview
-
-# ThisDay
-
-## Table of Contents
-
-
-## Overview
 ### Description
 * An interactive app that allows users to see what activities are happening around them and share what they are doing. Users are also able to see what their friends are up to.
 
