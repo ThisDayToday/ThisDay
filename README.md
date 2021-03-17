@@ -84,8 +84,8 @@
     * Create Event
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+
+<img src="https://i.gyazo.com/32230d47760a0732e78b1ab8a632d61a.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
