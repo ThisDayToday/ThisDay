@@ -60,7 +60,7 @@
 **Tab Navigation** (Tab to Screen)
 
 * Recommended Feed
-* Friends Feed
+* Create Event
 * Profile
 
 **Flow Navigation** (Screen to Screen)
