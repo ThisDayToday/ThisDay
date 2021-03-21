@@ -8,7 +8,7 @@
 
 ## Overview
 ### Description
-* An interactive app that allows users to see what activities are happening around them and share what they are doing. Users are also able to see what their friends are up to.
+ThisDay is an app dedicated to displaying free, cheap, and current events happening around a user's area. The user will be suggested events related to their interests, be able to check-in and share events they are attending, and have the ability to add their friends and see their recent or upcoming events.
 
 ## Product Spec
 ### 1. User Stories (required and optional)
