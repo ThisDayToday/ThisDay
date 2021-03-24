@@ -91,11 +91,115 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 
 ### [BONUS] Interactive Prototype
 
+
 ## Schema 
-[This section will be completed in Unit 9]
-### Models
-[Add table of models]
+## Models
+### User
+| Property Name | Type | Description |
+| --- | --- | --- |
+| objectId | String | Unique id for the user post (default) |
+| username | String | Unique name for the user |
+| location | String | User’s location provided at registration |
+| password | String | Unique user password |
+| email | String | Unique user email |
+| phone | String | User’s phone number |
+| friends | (User)Array | List of friends added by the user |
+| recentEvents | (Event)Array | List of recently attended events |
+| friendsEvents | (Event)Array | List of events the user plans on attending |
+| profileImg | File | Header image for user profile |
+| userImg | File | User profile display image |
+
+### Event
+| Property Name | Type | Description |
+| --- | --- | --- |
+|objectId| String | Unique id for the event post.|
+| eventName | String | Name of the event|
+|description|String|Description of event|
+|date|Date|Date of event|
+|createdAt|Date|Date of created event|
+|attending|Int|Number of people attending event|
+|eventLocation|String|The location of event|
+|update|Date|Date update event|
+|friendsAttending|(User)Array|List of all of the user’s friends attending|
+|eventImage|File|Image of the event|
+|eventType|String|The type of event|
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+**Homepage**
+* No network request action, navigate to login or register.
+
+**Register**
+* (Create/POST)
+     * Creating and saving a new user.
+
+Example Code:
+```java
+private void savePost(String description, ParseUser currentUser, File photoFile) {
+   Post post = new Post();
+   post.setDescription(description);
+   post.setImage(new ParseFile(photoFile));
+   post.serUser(currentUser);
+   post.saveInBackground(new SaveCallback() {
+       @Override
+       public void done(ParseException e) {
+           if(e!=null){
+               Log.e(TAG,"Error while saving",e);
+               Toast.makeText(getContext(), "Error while saving!",Toast.LENGTH_SHORT).show();
+           }
+           Log.i(TAG,"Post save was successful");
+           etDescription.setText("");
+           ivPostImage.setImageResource(0);
+       }
+   });
+}
+```
+
+# **Feeds Activity**
+* (Read/GET)
+* Fetching posts for a user’s feed
+
+## Example Code:
+```java
+public void bind(Post post) {
+  tvDescription.setText(post.getDescription());        // Get Caption for a post
+  tvUsername.setText(post.getUser().getUsername()); // Get username for a post
+
+  ParseFile image = post.getImage();	// Get image for a post
+  if(image!= null){
+      Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
+  }
+```
+
+# **User Profile**
+* (Read/GET)
+*Fetch all of this user’s posts
+* (Delete)
+*Delete an existing post
+
+## Example Code:
+```java
+public void bind(Post post) {
+  tvDescription.setText(post.getDescription());        // Get Caption for a post
+  tvUsername.setText(post.getUser().getUsername()); // Get username for a post
+
+  ParseFile image = post.getImage();	// Get image for a post
+  if(image!= null){
+      Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
+  }
+```
+# **Event Detail**
+* (Read/GET)
+* Fetch details on a selected post
+
+## Example Code:
+```java
+public void bind(Post post) {
+  tvDescription.setText(post.getDescription());        // Get Caption for a post
+  tvUsername.setText(post.getUser().getUsername()); // Get username for a post
+
+  ParseFile image = post.getImage();	// Get image for a post
+  if(image!= null){
+      Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
+  }
+```
