@@ -5,14 +5,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EventDetail extends AppCompatActivity {
+public class ProfileEvent extends AppCompatActivity {
 
     private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_detail);
+        setContentView(R.layout.activity_item_profile_event);
 
         mTextView = (TextView) findViewById(R.id.text);
 

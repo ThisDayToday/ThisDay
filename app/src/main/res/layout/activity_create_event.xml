@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD260"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".LoginPage"
+    tools:deviceIds="wear">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#AE535353"
+        android:scaleType="center"
+        tools:srcCompat="@android:drawable/ic_menu_add" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/event_name" />
+
+    <EditText
+        android:id="@+id/etName"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Name..."
+        android:padding="10dp"
+        android:textColor="#B27A0D" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/location" />
+
+    <EditText
+        android:id="@+id/etLocation"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Where?"
+        android:padding="10dp"
+        android:textColor="#B27A0D" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/description" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="What's happening?"
+        android:minLines="4"
+        android:padding="10dp"
+        android:textColor="#B27A0D" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/collaborators" />
+
+    <EditText
+        android:id="@+id/etLink"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Add collaborator"
+        android:padding="10dp"
+        android:textColor="#B27A0D" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/link" />
+
+    <EditText
+        android:id="@+id/etCollaborators"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="URL"
+        android:padding="10dp"
+        android:textColor="#B27A0D" />
+
+</LinearLayout>
