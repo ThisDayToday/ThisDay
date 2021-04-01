@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD260"
+    android:orientation="vertical"
+    android:padding="60dp"
+    tools:context=".LoginPage"
+    tools:deviceIds="wear">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:lineHeight="50dp"
+        android:text="@string/welcome"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Username"
+        android:textColor="#B27A0D" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Password"
+        android:textColor="#B27A0D" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Email"
+        android:textColor="#B27A0D" />
+
+    <EditText
+        android:id="@+id/etPhone"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Phone"
+        android:textColor="#B27A0D" />
+
+    <EditText
+        android:id="@+id/etLocation"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:hint="Location"
+        android:textColor="#B27A0D" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textColor="#B27A0D" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="0"
+        android:text="@string/newsletter"
+        android:textAlignment="textStart"
+        android:textColor="#B27A0D"
+        android:textSize="12sp" />
+
+</LinearLayout>
