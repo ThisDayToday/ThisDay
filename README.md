@@ -29,6 +29,10 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 * User can Logout
 * User can view events while not connected to internet (persistence)
 
+**Issues to be completed before implementing User Stories**
+- [x] Set up Back4App database
+- [x] Set up XML layouts
+- [x] Begin connecting XMLs to classes 
 
 **Optional Nice to Have Features**
 
@@ -38,6 +42,7 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 
 
 ### 2. Screen Archetypes
+<img src='https://i.imgur.com/sm1zpMw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 * Login
     * User can login with username/email and password.
