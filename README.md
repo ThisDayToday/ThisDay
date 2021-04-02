@@ -42,7 +42,7 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 
 
 ### 2. Screen Archetypes
-<img src='https://i.imgur.com/sm1zpMw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/sm1zpMw.gif' title='Video Walkthrough' width='400' alt='Video Walkthrough' />
 
 * Login
     * User can login with username/email and password.
@@ -90,7 +90,7 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 
 ## Wireframes
 
-<img src="https://i.gyazo.com/32230d47760a0732e78b1ab8a632d61a.png" width=600>
+<img src="https://i.gyazo.com/32230d47760a0732e78b1ab8a632d61a.png" width=400>
 
 ### [BONUS] Digital Wireframes & Mockups
 
