@@ -13,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThisDay">
+        <activity android:name=".RegisterPage"></activity>
+        <activity android:name=".FeedsActivity"></activity>
 
         <activity android:name=".LoginPage">
             <intent-filter>
