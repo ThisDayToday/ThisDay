@@ -25,7 +25,7 @@ public class LoginPage extends AppCompatActivity {
 
         mTextView = (TextView) findViewById(R.id.text);
         etPassword = findViewById(R.id.etPassword);
-        etUsername =findViewById(R.id.etUsername);
+        etUsername =findViewById(R.id.etUsernameR);
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
