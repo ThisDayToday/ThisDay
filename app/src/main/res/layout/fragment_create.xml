@@ -7,7 +7,7 @@
     android:background="#FFD260"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".LoginPage"
+    tools:context=".fragments.CreateFragment"
     tools:deviceIds="wear">
 
 

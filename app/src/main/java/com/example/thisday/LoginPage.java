@@ -52,7 +52,7 @@ public class LoginPage extends AppCompatActivity {
 
     private void loginUser(){
 
-        Intent i = new Intent(this, FeedsActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 

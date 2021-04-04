@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="10dp"
-    tools:context=".ProfileEvent"
+    tools:context=".EventDetail"
     tools:deviceIds="wear">
 
     <ImageView

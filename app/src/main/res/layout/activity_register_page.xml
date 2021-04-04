@@ -8,7 +8,7 @@
     android:background="#FFD260"
     android:orientation="vertical"
     android:padding="60dp"
-    tools:context=".LoginPage"
+    tools:context=".RegisterPage"
     tools:deviceIds="wear">
 
 
