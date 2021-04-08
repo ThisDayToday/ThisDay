@@ -11,13 +11,13 @@
     tools:context=".fragments.FeedFragment"
     tools:deviceIds="wear">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFD260"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+
+    <SearchView
+        android:id="@+id/svEvent"
+        android:layout_width="381dp"
+        android:layout_height="wrap_content">
+
+    </SearchView>
 
     <TextView
         android:id="@+id/textView8"
@@ -90,4 +90,5 @@
         android:scaleType="fitStart"
         android:scaleX="-1"
         app:srcCompat="?attr/homeAsUpIndicator" />
+
 </LinearLayout>
