@@ -9,7 +9,7 @@
     tools:context=".FeedEvent">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/ivFeedImage"
         android:layout_width="70dp"
         android:layout_height="match_parent"
         android:layout_weight="0"
@@ -32,7 +32,7 @@
             tools:text="@string/event_name" />
 
         <TextView
-            android:id="@+id/tvEventType"
+            android:id="@+id/tvFeedType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="VirtualEvent" />

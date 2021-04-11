@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDC94F"
 
+    android:background="#FFFFFF"
     android:orientation="vertical"
     android:padding="@dimen/box_inset_layout_padding"
     tools:context=".fragments.FeedFragment"
@@ -14,8 +14,9 @@
 
     <SearchView
         android:id="@+id/svEvent"
-        android:layout_width="381dp"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FDC94F">
 
     </SearchView>
 
@@ -40,6 +41,7 @@
         android:background="#5B5B5B" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPopularEvents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -76,6 +78,7 @@
         android:background="#5B5B5B" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFriendsEvents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
