@@ -9,6 +9,6 @@ public class FeedEvent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_feed_event);
+        setContentView(R.layout.item_feed_event);
     }
 }
