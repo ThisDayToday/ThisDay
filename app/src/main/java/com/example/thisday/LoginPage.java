@@ -23,6 +23,7 @@ public class LoginPage extends AppCompatActivity {
     private Button btnLogin;
     private Button btnRegister;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();

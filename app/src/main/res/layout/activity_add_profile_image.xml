@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD260"
+    android:orientation="vertical"
+    tools:context=".AddProfileImageActivity">
+
+    <ImageView
+        android:id="@+id/ivProfileI"
+        android:layout_width="377dp"
+        android:layout_height="109dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnProfileI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#050505"
+        android:text="Add Profile Pic"
+        android:textColor="#201E1E" />
+
+    <ImageView
+        android:id="@+id/ivBackgroundI"
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <Button
+        android:id="@+id/btnBackgroundI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Background Pic"
+        android:textColor="#070707" />
+
+    <Button
+        android:id="@+id/btnAddImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apply"
+        android:textColor="#070606" />
+</LinearLayout>
