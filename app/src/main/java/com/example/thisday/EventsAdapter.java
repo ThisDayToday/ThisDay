@@ -1,6 +1,8 @@
 package com.example.thisday;
 
 import android.content.Context;
+import android.content.Intent;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,12 +52,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         private TextView tvEventType;
         private TextView tvEventDate;
         private ImageView ivEventImage;
+       // private View eventContainer;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             tvEventName = itemView.findViewById(R.id.tvFeedName);
             tvEventType = itemView.findViewById(R.id.tvFeedType);
             ivEventImage = itemView.findViewById(R.id.ivFeedImage);
+            //eventContainer = itemView.findViewById(R.id.eventContiner);
         }
 
         public void bind(Event Event) {
@@ -67,6 +71,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
             if (image != null){
                 Glide.with(context).load(Event.getImage().getUrl()).circleCrop().into(ivEventImage);
             }
+
+          tvEventName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

@@ -9,10 +9,22 @@
     android:orientation="vertical"
     tools:context=".AddProfileImageActivity">
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:fontFamily="sans-serif"
+        android:text="Add Profile Images"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/ivProfileI"
-        android:layout_width="377dp"
-        android:layout_height="109dp"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -39,7 +51,7 @@
     <Button
         android:id="@+id/btnAddImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="57dp"
         android:text="Apply"
         android:textColor="#070606" />
 </LinearLayout>

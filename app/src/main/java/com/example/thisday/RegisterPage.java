@@ -66,7 +66,6 @@ public class RegisterPage extends AppCompatActivity {
 
 
 
-
         user.signUpInBackground(new SignUpCallback() {
             public void done(ParseException e) {
                 if (e == null) {
@@ -84,6 +83,7 @@ public class RegisterPage extends AppCompatActivity {
     }
     private void goAddPic() {
         Intent i = new Intent(this, AddProfileImageActivity.class);
+
         startActivity(i);
         finish();
     }
