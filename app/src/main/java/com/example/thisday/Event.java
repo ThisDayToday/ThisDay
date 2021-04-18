@@ -41,7 +41,7 @@ public class Event extends ParseObject {
     // may want to make this an enum
     public void setType(String type){ put(KEY_TYPE, type); }
 
-    public String getDate() { return getString(KEY_DATE); } 
+    public String getDate() { return getString(KEY_DATE); }
 
     public void setDate(String date){ put(KEY_DATE, date); }
 
