@@ -1,6 +1,5 @@
 package com.example.thisday;
 
-import com.parse.Parse;
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
@@ -20,12 +19,13 @@ public class Event extends ParseObject {
     public static final String KEY_IMAGE = "eventImage";
     public static final String KEY_ATTENDEES = "eventAttendees";
     public static final String KEY_ORGANIZATION = "eventOrganization";
+    public static final String KEY_INPROFILE= "inProfile";
 
     public String getDescription(){
         return getString(KEY_DESCRIPTION);
     }
 
-    public void setDescrition(String description){ put(KEY_DESCRIPTION, description); }
+    public void setDescription(String description){ put(KEY_DESCRIPTION, description); }
 
     public ParseFile getImage(){ return getParseFile(KEY_IMAGE); }
 
@@ -41,20 +41,27 @@ public class Event extends ParseObject {
     // may want to make this an enum
     public void setType(String type){ put(KEY_TYPE, type); }
 
-    public Date getDate() { return getDate(KEY_DATE); }
+    public String getDate() { return getString(KEY_DATE); }
 
-    public void setDate(Date date){ put(KEY_DATE, date); }
+    public void setDate(String date){ put(KEY_DATE, date); }
 
-    public ParseGeoPoint getLocation() { return getParseGeoPoint(KEY_LOCATION); }
+    public String getLocation() { return getString(KEY_LOCATION); }
 
-    public void setLocation(ParseGeoPoint location){ put(KEY_LOCATION, location); }
+    public void setLocation(String location){ put(KEY_LOCATION, location); }
 
-    public Number getAttendees() { return getNumber(KEY_ATTENDEES); }
+    public String getAttendees() { return getString(KEY_ATTENDEES); }
 
-    public void setAttendees(Number attendees){ put(KEY_ATTENDEES, attendees); }
+    public void setAttendees(String attendees){ put(KEY_ATTENDEES, attendees); }
+
+    public void setOrganization(ParseUser user){
+        put(KEY_ORGANIZATION,user);
+    }
 
     public ParseUser getOrganization() { return getParseUser(KEY_ORGANIZATION);}
 
     public void setAttendees(ParseUser organization){ put(KEY_ORGANIZATION, organization); }
 
+    public void setInProfile(Boolean b){ put(KEY_INPROFILE, b); }
+
+    public boolean inProfile() { return getBoolean(KEY_INPROFILE);}
 }

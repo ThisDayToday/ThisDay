@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/etPasswordR"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFD260"
@@ -35,13 +34,14 @@
         android:textColor="#B27A0D" />
 
     <EditText
+        android:id="@+id/etPasswordR"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="sans-serif"
-        android:hint="Password"
+        android:hint="@string/password"
         android:textColor="#B27A0D" />
 
     <EditText
@@ -74,11 +74,13 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="sans-serif"
-        android:hint="Location"
-        android:textColor="#B27A0D" />
+        android:hint="@string/location"
+        android:textColor="#B27A0D"
+
+        android:autofillHints="" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnRegisterR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"

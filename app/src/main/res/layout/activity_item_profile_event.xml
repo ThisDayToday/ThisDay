@@ -4,53 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    tools:context=".EventDetail"
-    tools:deviceIds="wear">
-
-    <ImageView
-        android:id="@+id/ivEvent"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_weight="0"
-        android:scaleType="centerCrop"
-        tools:src="@tools:sample/backgrounds/scenic" />
+    android:layout_weight="0"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingLeft="10dp">
+        android:orientation="horizontal"
+        android:padding="10dp"
+        tools:context=".EventDetail"
+        tools:deviceIds="wear">
 
-        <TextView
-            android:id="@+id/tvProfileName"
+
+        <ImageView
+            android:id="@+id/ivProfileEvent"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_weight="0"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            tools:text="@string/event_name" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
 
-        <TextView
-            android:id="@+id/tvOrg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            tools:text="Organization" />
+            <TextView
+                android:id="@+id/tvProfileEventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="@string/event_name" />
 
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="09/17/2021" />
+            <TextView
+                android:id="@+id/tvOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                tools:text="Organization" />
 
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            tools:text="This is a description This is a description This is a description This is a description This is a description This is a description" />
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="09/17/2021" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                tools:text="This is a description This is a description This is a description This is a description This is a description This is a description" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="10dp"
+        android:background="#DADADA" />
 </LinearLayout>

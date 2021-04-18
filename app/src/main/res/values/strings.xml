@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ThisDay</string>
     <string name="thisday">thisday</string>
     <string name="title_activity_login_page">LoginPage</string>
@@ -11,6 +11,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="Create">Create</string>
     <string name="phone">Phone</string>
     <string name="location">Location</string>
     <string name="newsletter">Sign up for our news letter!</string>
@@ -24,12 +25,14 @@
     <string name="future_events">Future Events</string>
     <string name="event_name">Event Name</string>
     <string name="description">Description</string>
-    <string name="collaborators">Collaborator</string>
+    <string name="attendees">Attendees</string>
     <string name="link">Link</string>
     <string name="title_activity_item_profile_event">item_profile_event</string>
     <string name="going">Going?</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search">Search</string>
+    <string name="location1">Location</string>
+    <string name="password1">Password</string>
 
 </resources>

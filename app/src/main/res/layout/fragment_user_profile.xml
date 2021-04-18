@@ -115,7 +115,7 @@
             android:background="#5B5B5B" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRecentEvents"
+            android:id="@+id/rvEvents"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

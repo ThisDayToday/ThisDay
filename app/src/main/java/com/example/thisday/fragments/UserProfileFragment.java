@@ -7,7 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +17,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.thisday.Event;
+import com.example.thisday.EventsAdapter;
 import com.example.thisday.R;
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserProfileFragment extends Fragment {
+    public static final String TAG = "ProfileFragment";
     private ImageView ivBackground;
     private ImageView ivUserIMG;
     private TextView tvUsername;
     private TextView tvLocation;
     private TextView tvRecentEvents;
     private TextView tvFutureEvents;
+    private RecyclerView rvEvents;
+    protected EventsAdapter eventsAdapter;
+    private List<Event> allEvents;
     private boolean currentTab;
     private static final String PROFILE_IMG_KEY = "profileImg";
     private static final String BACKGROUND_IMG_KEY = "profileBackground";
@@ -83,9 +95,17 @@ public class UserProfileFragment extends Fragment {
         tvLocation = view.findViewById(R.id.tvLocation);
         tvRecentEvents = view.findViewById(R.id.tvRecentEvents);
         tvFutureEvents = view.findViewById(R.id.tvLocation);
-
         tvUsername.setText(ParseUser.getCurrentUser().getUsername());
 
+        rvEvents = view.findViewById(R.id.rvEvents);
+        allEvents = new ArrayList<>();
+        eventsAdapter = new EventsAdapter(getContext(), allEvents);
+        eventsAdapter.setProfileFragment(true);
+        eventsAdapter.setFeedFragment(false);
+        rvEvents.setAdapter(eventsAdapter);
+        rvEvents.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        queryEvents();
 
 
         ParseFile profileImg = (ParseFile) ParseUser.getCurrentUser().get(PROFILE_IMG_KEY);
@@ -121,6 +141,31 @@ public class UserProfileFragment extends Fragment {
             }
         });
 
+    }
+
+    protected void queryEvents() {
+        ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
+        query.setLimit(10);
+        query.findInBackground(new FindCallback<Event>() {
+            @Override
+            public void done(List<Event> events, ParseException e) {
+                if (e != null){
+                    Log.e(TAG, "Issue with getting Events", e);
+                    return;
+                }
+                for( Event event : events){
+
+                    try {
+                        Log.i(TAG, "Event: " + event.getDescription() + event.getOrganization().fetchIfNeeded().toString());
+                    } catch (ParseException parseException) {
+                        parseException.printStackTrace();
+                    }
+
+                }
+                allEvents.addAll(events);
+                eventsAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
 
