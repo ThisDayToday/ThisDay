@@ -11,6 +11,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="Create">Create</string>
     <string name="phone">Phone</string>
     <string name="location">Location</string>
     <string name="newsletter">Sign up for our news letter!</string>
@@ -24,7 +25,7 @@
     <string name="future_events">Future Events</string>
     <string name="event_name">Event Name</string>
     <string name="description">Description</string>
-    <string name="collaborators">Collaborator</string>
+    <string name="attendees">Attendees</string>
     <string name="link">Link</string>
     <string name="title_activity_item_profile_event">item_profile_event</string>
     <string name="going">Going?</string>

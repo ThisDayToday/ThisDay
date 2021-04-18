@@ -15,19 +15,19 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 
 **Required Must Have Stories**
 
-* User can Login & Register
-    * User takes quick interest quiz when first registering
-* User can view feed 
-* User can view event detail activity
-* User can check-in to events through feed or event detail
-* User can share events
-* User can create their own event
-* User has access to their profile
-    * User can edit their location, profile picture, username
-    * User profile contains check-in events
-* User can check-in to an event
-* User can Logout
-* User can view events while not connected to internet (persistence)
+- [x] User can Login & Register
+    - [ ] User takes quick interest quiz when first registering
+- [x] User can view feed 
+- [ ] User can view event detail activity
+- [ ] User can check-in to events through feed or event detail
+- [ ] User can share events
+- [x] User can create their own event
+- [x] User has access to their profile
+    - [ ] User can edit their location, profile picture, username
+    - [ ] User profile contains check-in events
+- [ ] User can check-in to an event
+- [ ] User can Logout
+- [ ] User can view events while not connected to internet (persistence)
 
 **Issues to be completed before implementing User Stories**
 - [x] Set up Back4App database
@@ -42,7 +42,7 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 
 
 ### 2. Screen Archetypes
-<img src='https://i.imgur.com/sm1zpMw.gif' title='Video Walkthrough' width='400' alt='Video Walkthrough' />
+<img src='https://imgur.com/UtKJfK9.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
 
 * Login
     * User can login with username/email and password.
