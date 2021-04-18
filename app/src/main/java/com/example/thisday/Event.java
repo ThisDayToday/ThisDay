@@ -13,7 +13,7 @@ public class Event extends ParseObject {
 
     public static final String KEY_NAME = "eventName";
     public static final String KEY_TYPE = "eventType";
-    public static final String KEY_DATE = "evteentDa";
+    public static final String KEY_DATE = "eventDate";
     public static final String KEY_LOCATION = "eventLocation";
     public static final String KEY_DESCRIPTION = "eventDescription";
     public static final String KEY_IMAGE = "eventImage";
