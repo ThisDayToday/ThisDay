@@ -20,6 +20,7 @@ public class Event extends ParseObject {
     public static final String KEY_IMAGE = "eventImage";
     public static final String KEY_ATTENDEES = "eventAttendees";
     public static final String KEY_ORGANIZATION = "eventOrganization";
+    public static final String KEY_OBJECT_ID = "objectId";
 
     public String getDescription(){
         return getString(KEY_DESCRIPTION);
@@ -41,20 +42,23 @@ public class Event extends ParseObject {
     // may want to make this an enum
     public void setType(String type){ put(KEY_TYPE, type); }
 
-    public Date getDate() { return getDate(KEY_DATE); }
+    public String getDate() { return  getString(KEY_DATE); }
 
     public void setDate(Date date){ put(KEY_DATE, date); }
 
-    public ParseGeoPoint getLocation() { return getParseGeoPoint(KEY_LOCATION); }
+    public String getLocation() { return getString(KEY_LOCATION); }
 
     public void setLocation(ParseGeoPoint location){ put(KEY_LOCATION, location); }
 
-    public Number getAttendees() { return getNumber(KEY_ATTENDEES); }
+    //public Number getAttendees() { return getNumber(KEY_ATTENDEES); }
 
     public void setAttendees(Number attendees){ put(KEY_ATTENDEES, attendees); }
 
     public ParseUser getOrganization() { return getParseUser(KEY_ORGANIZATION);}
 
     public void setAttendees(ParseUser organization){ put(KEY_ORGANIZATION, organization); }
+
+    public String getAttendees(){return getString(KEY_ATTENDEES);}
+
 
 }

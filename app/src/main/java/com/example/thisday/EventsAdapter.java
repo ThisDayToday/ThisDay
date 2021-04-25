@@ -2,6 +2,8 @@ package com.example.thisday;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.example.thisday.Event;
 import com.example.thisday.R;
 import com.parse.ParseFile;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
@@ -52,6 +56,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         private TextView tvEventType;
         private TextView tvEventDate;
         private ImageView ivEventImage;
+
+
+        private String attendees;
+        private String Location;
+        private String eventType;
+        private String eventUser;
+        private String eventDescription;
        // private View eventContainer;
 
         public ViewHolder(@NonNull View itemView){
@@ -65,6 +76,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
         public void bind(Event Event) {
             tvEventName.setText(Event.getName());
             tvEventType.setText(Event.getType());
+//            tvEventDate.setText(Event.getDate());
+
+            //tvEventDate.setText(toString(Event.getDate()));
+
+            eventUser = Event.getOrganization().getUsername();
+            eventType = Event.getType();
+            Location = Event.getLocation();
+            attendees = Event.getAttendees();
+            eventDescription = Event.getDescription();
+
             // may have to format date
             // tvEventDate.setText(Event.getDate().toString());
             ParseFile image = Event.getImage();
@@ -75,8 +96,25 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
           tvEventName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, DetailActivity.class);
-                    context.startActivity(intent);
+                    Bitmap bmp = ivEventImage.getDrawingCache();
+                   // ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                 //   bmp.compress(Bitmap.CompressFormat.JPEG, 100, bs);
+                  //  byte[] byteArray = bs.toByteArray();
+
+
+
+                    Intent intent = new Intent(itemView.getContext(),DetailActivity.class );
+
+                    intent.putExtra("user", eventUser);
+                    intent.putExtra("type", eventType);
+                    intent.putExtra("attendees", attendees);
+                    intent.putExtra("date", Event.getDate());
+                    intent.putExtra("name", Event.getName());
+                    intent.putExtra("PICTURE", bmp);
+                    intent.putExtra("description", eventDescription);
+
+
+                    itemView.getContext().startActivity(intent);
                 }
             });
         }
