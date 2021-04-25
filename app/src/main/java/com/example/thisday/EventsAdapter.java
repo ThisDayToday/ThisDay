@@ -8,6 +8,8 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -66,6 +68,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
         private TextView tvOrg;
         private TextView tvDesc;
+        private CheckBox cbGoing;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
@@ -81,7 +84,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                 ivEventImage = itemView.findViewById(R.id.ivFeedImage);
                 tvEventDate = itemView.findViewById(R.id.tvFeedDate);
             }
-
+            cbGoing = itemView.findViewById(R.id.cbGoing);
         }
 
         public void bind(Event event) {
@@ -94,7 +97,22 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                 tvEventName.setText(event.getName());
                 tvEventType.setText(event.getType());
                 tvEventDate.setText(event.getDate());
+                if(event.inProfile()){
+                    cbGoing.setChecked(true);
+                }
+
+                cbGoing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if(cbGoing.isChecked()){
+                            event.setInProfile(true);
+                            cbGoing.setChecked(true);
+                            EventsAdapter.super.notifyDataSetChanged();
+                        }
+                    }
+                });
             }
+
             // may have to format date
             // tvEventDate.setText(Event.getDate().toString());
             ParseFile image = event.getImage();
@@ -111,6 +129,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                     context.startActivity(intent);
                 }
             });
+
         }
 
 

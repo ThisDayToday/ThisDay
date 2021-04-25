@@ -19,6 +19,7 @@ import com.example.thisday.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class RecyclerFeedFragment extends Fragment {
     private RecyclerView rvFocusedFeed;
     private EventsAdapter eventsAdapter;
     private List<Event> allEvents;
-
+    private Boolean feedtype;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -95,11 +96,25 @@ public class RecyclerFeedFragment extends Fragment {
 
     }
 
+    public void setFeedtype(Boolean b){
+        this.feedtype = b;
+    }
+
 
 
     protected void queryEvents() {
         ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
         query.setLimit(20);
+        query.addDescendingOrder(Event.KEY_CREATED_KEY);
+        // true: popular event
+        // false: friend event
+        if(feedtype){
+            query.whereEqualTo(Event.KEY_POPULAREVENT, true);
+
+        }else{
+            query.whereEqualTo(Event.KEY_FRIENDEVENT, true);
+        }
+
         query.findInBackground(new FindCallback<Event>() {
             @Override
             public void done(List<Event> events, ParseException e) {

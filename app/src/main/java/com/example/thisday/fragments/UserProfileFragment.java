@@ -17,9 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.thisday.Event;
 import com.example.thisday.EventsAdapter;
 import com.example.thisday.R;
+import com.example.thisday.RoundedCornersTransformation;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -37,13 +39,17 @@ public class UserProfileFragment extends Fragment {
     private TextView tvUsername;
     private TextView tvLocation;
     private TextView tvRecentEvents;
-    private TextView tvFutureEvents;
     private RecyclerView rvEvents;
     protected EventsAdapter eventsAdapter;
     private List<Event> allEvents;
     private boolean currentTab;
     private static final String PROFILE_IMG_KEY = "profileImg";
     private static final String BACKGROUND_IMG_KEY = "profileBackground";
+    public static int sCorner = 200;
+    public static int sMargin = 10;
+    public static int sBorder = 12;
+    public static String sColor = "#ffffff";
+
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -94,8 +100,8 @@ public class UserProfileFragment extends Fragment {
         tvUsername = view.findViewById(R.id.tvUsername);
         tvLocation = view.findViewById(R.id.tvLocation);
         tvRecentEvents = view.findViewById(R.id.tvRecentEvents);
-        tvFutureEvents = view.findViewById(R.id.tvLocation);
-        tvUsername.setText(ParseUser.getCurrentUser().getUsername());
+
+        tvUsername.setText("@" + ParseUser.getCurrentUser().getUsername());
 
         rvEvents = view.findViewById(R.id.rvEvents);
         allEvents = new ArrayList<>();
@@ -104,13 +110,20 @@ public class UserProfileFragment extends Fragment {
         eventsAdapter.setFeedFragment(false);
         rvEvents.setAdapter(eventsAdapter);
         rvEvents.setLayoutManager(new LinearLayoutManager(getContext()));
+        tvLocation.setText(ParseUser.getCurrentUser().getString("location"));
 
         queryEvents();
 
 
         ParseFile profileImg = (ParseFile) ParseUser.getCurrentUser().get(PROFILE_IMG_KEY);
         if (profileImg != null){
-            Glide.with(view).load(profileImg.getUrl()).circleCrop().into(ivUserIMG);
+            //Glide.with(view).load(profileImg.getUrl()).circleCrop().into(ivUserIMG);
+
+            // Rounded corners
+            Glide.with(this).load(profileImg.getUrl()).circleCrop().apply(RequestOptions.bitmapTransform(new RoundedCornersTransformation(getContext(), sCorner, sMargin))).into(ivUserIMG);
+
+            // Rounded corners with border
+            Glide.with(this).load(profileImg.getUrl()).circleCrop().apply(RequestOptions.bitmapTransform(new RoundedCornersTransformation(getContext(), sCorner, sMargin, sColor, sBorder))).into(ivUserIMG);
         }
 
         ParseFile bgImg = (ParseFile) ParseUser.getCurrentUser().get(BACKGROUND_IMG_KEY);
@@ -118,34 +131,13 @@ public class UserProfileFragment extends Fragment {
             Glide.with(view).load(bgImg.getUrl()).into(ivBackground);
         }
 
-        currentTab = false;
-        tvRecentEvents.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(currentTab){
-                    tvRecentEvents.setBackgroundColor(Color.LTGRAY);
-                    tvFutureEvents.setBackgroundColor(Color.WHITE);
-                    currentTab = false;
-                }
-            }
-        });
-
-        tvFutureEvents.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!currentTab){
-                    tvRecentEvents.setBackgroundColor(Color.WHITE);
-                    tvFutureEvents.setBackgroundColor(Color.LTGRAY);
-                    currentTab = true;
-                }
-            }
-        });
-
     }
+
 
     protected void queryEvents() {
         ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
-        query.setLimit(10);
+        query.addDescendingOrder(Event.KEY_CREATED_KEY);
+        query.whereEqualTo(Event.KEY_INPROFILE, true);
         query.findInBackground(new FindCallback<Event>() {
             @Override
             public void done(List<Event> events, ParseException e) {

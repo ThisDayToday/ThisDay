@@ -34,8 +34,11 @@ public class FeedFragment extends Fragment {
     public static final String TAG = "FeedFragment";
     protected RecyclerView rvPopularEvents;
     protected RecyclerView rvFriendsEvents;
-    protected EventsAdapter eventsAdapter;
-    protected List<Event> allEvents;
+    private EventsAdapter popularEventsAdapter;
+    private EventsAdapter friendsEventsAdapter;
+    private List<Event> friendEvents;
+    private List<Event> popularEvents;
+
     private ImageButton btnSeePopular;
     private ImageButton btnSeeFriends;
 
@@ -65,14 +68,23 @@ public class FeedFragment extends Fragment {
         btnSeePopular = view.findViewById(R.id.btnSeePopular);
         btnSeeFriends = view.findViewById(R.id.btnSeeFriends);
 
+        popularEvents = new ArrayList<>();
+        popularEventsAdapter = new EventsAdapter(getContext(), popularEvents);
+        popularEventsAdapter.setFeedFragment(true);
+        popularEventsAdapter.setProfileFragment(false);
 
-        allEvents = new ArrayList<>();
-        eventsAdapter = new EventsAdapter(getContext(), allEvents);
-        eventsAdapter.setFeedFragment(true);
-        eventsAdapter.setProfileFragment(false);
-        rvPopularEvents.setAdapter(eventsAdapter);
+        friendEvents = new ArrayList<>();
+        friendsEventsAdapter = new EventsAdapter(getContext(), friendEvents);
+        friendsEventsAdapter.setFeedFragment(true);
+        friendsEventsAdapter.setProfileFragment(false);
+
+
+        rvPopularEvents.setNestedScrollingEnabled(false);
+        rvPopularEvents.setAdapter(popularEventsAdapter);
         rvPopularEvents.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvFriendsEvents.setAdapter(eventsAdapter);
+
+        rvFriendsEvents.setNestedScrollingEnabled(false);
+        rvFriendsEvents.setAdapter(friendsEventsAdapter);
         rvFriendsEvents.setLayoutManager(new LinearLayoutManager(getContext()));
         queryEvents();
 
@@ -83,19 +95,21 @@ public class FeedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "See more popular events!", Toast.LENGTH_SHORT).show();
-                Fragment fragment = new RecyclerFeedFragment();
+                RecyclerFeedFragment rvf = new RecyclerFeedFragment();
+                rvf.setFeedtype(true);
+                Fragment fragment = rvf;
                 FragmentManager fragmentManager = FeedFragment.super.getParentFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
             }
         });
 
-        btnSeeFriends.bringToFront();
-
         btnSeeFriends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "See more friends events!", Toast.LENGTH_SHORT).show();
-                Fragment fragment = new RecyclerFeedFragment();
+                RecyclerFeedFragment rvf = new RecyclerFeedFragment();
+                rvf.setFeedtype(false);
+                Fragment fragment = rvf;
                 FragmentManager fragmentManager = FeedFragment.super.getParentFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
             }
@@ -106,6 +120,8 @@ public class FeedFragment extends Fragment {
     protected void queryEvents() {
         ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
         query.setLimit(3);
+        query.addDescendingOrder(Event.KEY_CREATED_KEY);
+        query.whereEqualTo(Event.KEY_POPULAREVENT, true);
         query.findInBackground(new FindCallback<Event>() {
             @Override
             public void done(List<Event> events, ParseException e) {
@@ -122,9 +138,33 @@ public class FeedFragment extends Fragment {
                     }
 
                 }
-                allEvents.addAll(events);
-                eventsAdapter.notifyDataSetChanged();
+                popularEvents.addAll(events);
+                popularEventsAdapter.notifyDataSetChanged();
             }
         });
+
+        query.whereEqualTo(Event.KEY_FRIENDEVENT, true);
+        query.findInBackground(new FindCallback<Event>() {
+            @Override
+            public void done(List<Event> events, ParseException e) {
+                if (e != null){
+                    Log.e(TAG, "Issue with getting Events", e);
+                    return;
+                }
+                for( Event event : events){
+
+                    try {
+                        Log.i(TAG, "Event: " + event.getDescription() + event.getOrganization().fetchIfNeeded().toString());
+                    } catch (ParseException parseException) {
+                        parseException.printStackTrace();
+                    }
+
+                }
+                friendEvents.addAll(events);
+                friendsEventsAdapter.notifyDataSetChanged();
+            }
+        });
+
+
     }
 }

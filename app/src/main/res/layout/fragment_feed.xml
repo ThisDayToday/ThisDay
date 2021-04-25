@@ -3,104 +3,105 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content">
 
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="@dimen/box_inset_layout_padding"
-    tools:context=".fragments.FeedFragment"
-    tools:deviceIds="wear">
-
-
-    <SearchView
-        android:id="@+id/svEvent"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FDC94F">
 
-    </SearchView>
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="@dimen/box_inset_layout_padding"
+        tools:context=".fragments.FeedFragment"
+        tools:deviceIds="wear">
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/popular"
-        android:textSize="22sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:background="#757575" />
+        <SearchView
+            android:id="@+id/svEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FDC94F">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPopularEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="#FFFFFF" >
+        </SearchView>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/popular"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/btnSeePopular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="360dp"
-        android:backgroundTint="#FFFFFF"
-        android:scaleX="-1"
-        android:src="@drawable/abc_vector_test"
-        android:tint="#757575" />
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#757575" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/friends_activity"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPopularEvents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:background="#757575" />
+        </androidx.recyclerview.widget.RecyclerView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFriendsEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="#FFFFFF" />
+        <ImageButton
+            android:id="@+id/btnSeePopular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="360dp"
+            android:backgroundTint="#FFFFFF"
+            android:scaleX="-1"
+            android:src="@drawable/abc_vector_test"
+            android:tint="#757575" />
 
-    <ImageButton
-        android:id="@+id/btnSeeFriends"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="360dp"
-        android:backgroundTint="#FFFFFF"
-        android:scaleX="-1"
-        android:src="@drawable/abc_vector_test"
-        android:tint="#757575" />
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/friends_activity"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:background="#757575" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFriendsEvents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btnSeeFriends"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="360dp"
+            android:backgroundTint="#FFFFFF"
+            android:scaleX="-1"
+            android:src="@drawable/abc_vector_test"
+            android:tint="#757575" />
+
+    </LinearLayout>
 
 </ScrollView>
