@@ -12,88 +12,154 @@
         android:layout_width="match_parent"
         android:layout_height="242dp"
         android:layout_weight="1"
+        android:defaultFocusHighlightEnabled="false"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/eventNameTV"
-        android:layout_width="157dp"
+        android:layout_width="218dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/eventPicIV"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="251dp"
+        android:layout_marginTop="12dp"
         android:text="Event Name"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/eventDateTV"
-        android:layout_width="80dp"
+        android:layout_width="146dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/eventPicIV"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="254dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
         android:layout_toEndOf="@+id/eventNameTV"
         android:text="7/7/7"
         android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/atendeeAmountTV"
-        android:layout_width="wrap_content"
+        android:layout_width="51dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/eventDateTV"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="286dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="106dp"
         android:text="3 mil"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/nameHostTV"
         android:layout_width="105dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/eventNameTV"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="291dp"
+        android:layout_marginTop="8dp"
         android:text="Host Name"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="131dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="265dp"
-        android:text="Event Decription"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/friendsAtendingTV"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="26dp"
+        android:layout_below="@+id/tvDescriptionD"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginBottom="241dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="10dp"
         android:text="Friends Attending"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/detailsEventTV"
         android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_below="@+id/tvDescriptionD"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="34dp"
+        android:text="@string/details_of_event"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDescriptionD"
+        android:layout_width="361dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView18"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailsEventTV"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="354dp"
+        android:layout_toEndOf="@+id/friendsAtendingTV"
+        android:text="@string/type"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/eventTypeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_below="@+id/detailsEventTV"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="241dp"
-        android:text="Details of Event"
-        android:textColor="#FFFFFF" />
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="354dp"
+        android:layout_toEndOf="@+id/textView13"
+        android:foregroundGravity="left"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameHostTV"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:text="Event Description"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eventDateTV"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="18dp"
+        android:text="Attendees"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
 </RelativeLayout>

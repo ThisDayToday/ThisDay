@@ -3,11 +3,15 @@ package com.example.thisday;
 import android.content.Context;
 import android.util.Log;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.Layout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +25,8 @@ import com.example.thisday.Event;
 import com.example.thisday.R;
 import com.parse.ParseFile;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
@@ -66,6 +72,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
         private TextView tvOrg;
         private TextView tvDesc;
+        private CheckBox cbGoing;
+        private String attendees;
+        private String Location;
+        private String eventType;
+        private String eventUser;
+        private String eventDescription;
+       // private View eventContainer;
+
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
@@ -81,7 +95,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                 ivEventImage = itemView.findViewById(R.id.ivFeedImage);
                 tvEventDate = itemView.findViewById(R.id.tvFeedDate);
             }
-
+            cbGoing = itemView.findViewById(R.id.cbGoing);
         }
 
         public void bind(Event event) {
@@ -94,7 +108,36 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
                 tvEventName.setText(event.getName());
                 tvEventType.setText(event.getType());
                 tvEventDate.setText(event.getDate());
+                if(event.inProfile()){
+                    cbGoing.setChecked(true);
+                }
+
+                cbGoing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if(cbGoing.isChecked()){
+                            event.setInProfile(true);
+                            cbGoing.setChecked(true);
+                            EventsAdapter.super.notifyDataSetChanged();
+                        }
+                    }
+                });
             }
+
+
+           // tvEventName.setText(Event.getName());
+           // tvEventType.setText(Event.getType());
+//            tvEventDate.setText(Event.getDate());
+
+            //tvEventDate.setText(toString(Event.getDate()));
+
+            eventUser = event.getOrganization().getUsername();
+            eventType = event.getType();
+            Location = event.getLocation();
+            attendees = event.getAttendees();
+            eventDescription = event.getDescription();
+
+
             // may have to format date
             // tvEventDate.setText(Event.getDate().toString());
             ParseFile image = event.getImage();
@@ -107,10 +150,28 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
           tvEventName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, DetailActivity.class);
-                    context.startActivity(intent);
+                    Bitmap bmp = ivEventImage.getDrawingCache();
+                   // ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                 //   bmp.compress(Bitmap.CompressFormat.JPEG, 100, bs);
+                  //  byte[] byteArray = bs.toByteArray();
+
+
+
+                    Intent intent = new Intent(itemView.getContext(),DetailActivity.class );
+
+                    intent.putExtra("user", eventUser);
+                    intent.putExtra("type", eventType);
+                    intent.putExtra("attendees", attendees);
+                    intent.putExtra("date", event.getDate());
+                    intent.putExtra("name", event.getName());
+                    intent.putExtra("PICTURE", bmp);
+                    intent.putExtra("description", eventDescription);
+
+
+                    itemView.getContext().startActivity(intent);
                 }
             });
+
         }
 
 

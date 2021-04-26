@@ -159,9 +159,20 @@ public class AddProfileImageActivity extends AppCompatActivity {
             }
         });
 
-        /*
+
         ParseFile file2 = new ParseFile(backFile);
+        file2.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e != null){
+                    Log.e(TAG, "Error while saving3", e);
+                }
+
+            }
+        });
         user.put("profileBackground", file2);
+
+
 
         user.saveInBackground(new SaveCallback() {
             @Override
@@ -173,7 +184,8 @@ public class AddProfileImageActivity extends AppCompatActivity {
 
             }
         });
-        */
+
+
         Intent i = new Intent(this,MainActivity.class);
         startActivity(i);
 
