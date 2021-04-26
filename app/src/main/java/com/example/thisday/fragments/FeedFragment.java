@@ -86,7 +86,6 @@ public class FeedFragment extends Fragment {
         rvFriendsEvents.setNestedScrollingEnabled(false);
         rvFriendsEvents.setAdapter(friendsEventsAdapter);
         rvFriendsEvents.setLayoutManager(new LinearLayoutManager(getContext()));
-        queryEvents();
 
 
 
@@ -114,7 +113,10 @@ public class FeedFragment extends Fragment {
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
             }
         });
+        rvFriendsEvents.bringToFront();
+        btnSeeFriends.bringToFront();
 
+        queryEvents();
     }
 
     protected void queryEvents() {

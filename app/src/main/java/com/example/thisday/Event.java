@@ -23,7 +23,7 @@ public class Event extends ParseObject {
     public static final String KEY_POPULAREVENT = "PopularEvent";
     public static final String KEY_FRIENDEVENT = "FriendEvent";
     public static final String KEY_CREATED_KEY = "createdAt";
-
+    public static final String KEY_OBJECT_ID = "objectId";
 
     public String getDescription(){
         return getString(KEY_DESCRIPTION);
@@ -49,17 +49,15 @@ public class Event extends ParseObject {
 
     public void setDate(String date){ put(KEY_DATE, date); }
 
-    public String getLocation() { return getString(KEY_LOCATION); }
-
     public void setLocation(String location){ put(KEY_LOCATION, location); }
+
+    public String getLocation() { return getString(KEY_LOCATION); }
 
     public String getAttendees() { return getString(KEY_ATTENDEES); }
 
     public void setAttendees(String attendees){ put(KEY_ATTENDEES, attendees); }
 
-    public void setOrganization(ParseUser user){
-        put(KEY_ORGANIZATION,user);
-    }
+    public void setOrganization(ParseUser user){ put(KEY_ORGANIZATION,user); }
 
     public ParseUser getOrganization() { return getParseUser(KEY_ORGANIZATION);}
 

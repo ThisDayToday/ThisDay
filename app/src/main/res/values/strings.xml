@@ -34,5 +34,7 @@
     <string name="search">Search</string>
     <string name="location1">Location</string>
     <string name="password1">Password</string>
+    <string name="details_of_event">Details of Event</string>
+    <string name="type">Type:</string>
 
 </resources>
