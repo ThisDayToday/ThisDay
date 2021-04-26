@@ -18,18 +18,17 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 - [x] User can Login & Register
     - [ ] User takes quick interest quiz when first registering
     - [x] User can register a new profile
-    - [ ] User can choose and upload a new profile/background picture
+    - [x] User can choose and upload a new profile/background picture
 - [x] User can view feed 
-- [ ] User can view event detail activity
-- [ ] User can check-in to events through feed or event detail
+- [x] User can view event detail activity
+- [x] User can check-in to events through feed or event detail
 - [ ] User can share events
 - [x] User can create their own event
     - [x] Connected to Back4App
-    - [ ] User can choose a date for their event 
+    - [x] User can choose a date for their event 
 - [x] User has access to their profile
     - [ ] User can edit their location, profile picture, username
     - [x] User profile contains checked-in events
-- [ ] User can check-in to an event
 - [ ] User can Logout
 - [ ] User can view events while not connected to internet (persistence)
 - [x] User can view a list of popular events
@@ -49,7 +48,7 @@ ThisDay is an app dedicated to displaying free, cheap, and current events happen
 
 
 ### 2. Screen Archetypes
-<img src='https://i.imgur.com/55cVPXP.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
+<img src='https://imgur.com/oXPDnoK.gif' title='Video Walkthrough' width='350' alt='Video Walkthrough' />
 
 * Login
     * User can login with username/email and password.
